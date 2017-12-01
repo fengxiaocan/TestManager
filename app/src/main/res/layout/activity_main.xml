@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+
+	<Button
+		android:id="@+id/bt"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp"
+		android:text="生成唯一的公钥私钥"/>
+
+	<Button
+		android:id="@+id/bt_de"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/bt"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp"
+		android:text="私钥加密"/>
+
+	<Button
+		android:id="@+id/bt_en"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_below="@+id/bt"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp"
+		android:text="公钥解密"/>
+
+	<LinearLayout
+		android:id="@+id/ll"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/bt_en"
+		android:layout_marginBottom="10dp"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp">
+
+		<EditText
+			android:id="@+id/et_appname"
+			android:layout_width="0dp"
+			android:layout_height="40dp"
+			android:layout_weight="1"
+			android:background="@drawable/et_bg"
+			android:gravity="top"
+			android:hint="请输入名字"
+			android:maxLines="1"
+			android:textColor="@color/colorAccent"
+			android:textColorHint="#393"
+			android:textSize="12sp"/>
+
+		<EditText
+			android:id="@+id/et_input"
+			android:layout_width="0dp"
+			android:layout_height="40dp"
+			android:layout_marginLeft="5dp"
+			android:layout_weight="2"
+			android:background="@drawable/et_bg"
+			android:gravity="top"
+			android:hint="请输入包名"
+			android:maxLines="1"
+			android:textColor="@color/colorAccent"
+			android:textColorHint="#393"
+			android:textSize="12sp"/>
+
+	</LinearLayout>
+
+	<EditText
+		android:id="@+id/et_time"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/ll"
+		android:layout_marginBottom="10dp"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp"
+		android:background="@drawable/et_bg"
+		android:gravity="top"
+		android:hint="请输入校验时间"
+		android:inputType="number"
+		android:textColor="#918f"
+		android:textColorHint="#9af"
+		android:textSize="15sp"/>
+
+	<Button
+		android:id="@+id/bt_create1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/et_time"
+		android:text="以秒为单位生成校验码"/>
+
+	<Button
+		android:id="@+id/bt_create2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_below="@+id/et_time"
+		android:text="以天为单位生成校验码"/>
+
+	<Button
+		android:id="@+id/bt_show"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/bt_create2"
+		android:layout_centerHorizontal="true"
+		android:text="选择历史记录"/>
+
+	<EditText
+		android:id="@+id/et_output"
+		android:layout_width="match_parent"
+		android:layout_height="200dp"
+		android:layout_alignParentBottom="true"
+		android:layout_marginBottom="10dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:background="@drawable/et_bg"
+		android:gravity="top"
+		android:textColor="#000"
+		android:textSize="15sp"/>
+</RelativeLayout>
