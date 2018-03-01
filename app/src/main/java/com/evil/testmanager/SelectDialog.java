@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -23,7 +24,7 @@ import java.util.ArrayList;
  */
 
 public class SelectDialog extends Dialog
-        implements AdapterView.OnItemClickListener{
+        implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
     private ListView         mLv;
     private OnSelectListener mOnSelectListener;
@@ -50,6 +51,7 @@ public class SelectDialog extends Dialog
         mLv = (ListView) view.findViewById(R.id.lv);
         mLv.setAdapter(mAdapter);
         mLv.setOnItemClickListener(this);
+        mLv.setOnItemLongClickListener(this);
         setContentView(view);
         //设置window背景，默认的背景会有Padding值，不能全屏。当然不一定要是透明，你可以设置其他背景，替换默认的背景即可。
 //        Window window = getWindow();
@@ -116,6 +118,14 @@ public class SelectDialog extends Dialog
         PName pName = mNames.get(position);
         mOnSelectListener.select(pName);
         dismiss();
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        mNames.remove(position);
+        File file = new File(getContext().getFilesDir(),"save.ini");
+        SaveUtils.save(file,mNames);
+        return true;
     }
 
     public interface OnSelectListener{
