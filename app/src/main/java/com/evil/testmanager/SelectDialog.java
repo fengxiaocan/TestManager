@@ -125,6 +125,7 @@ public class SelectDialog extends Dialog
         mNames.remove(position);
         File file = new File(getContext().getFilesDir(),"save.ini");
         SaveUtils.save(file,mNames);
+        mAdapter.notifyDataSetChanged();
         return true;
     }
 
